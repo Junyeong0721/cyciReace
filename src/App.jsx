@@ -5,6 +5,8 @@ import Dark from './page/Dark';
 import StudentInfo from './page/StudentInfo';
 import Props건네주기 from './page/7일차_comp/자식건네주기';
 
+import './App.css';
+
 function App() {
 
   return (
