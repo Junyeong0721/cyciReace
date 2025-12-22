@@ -1,18 +1,30 @@
 import 사과사진 from './apple.png';
 import 유령사진 from './ghost.jpg';
+import { useState } from 'react';
 
 export default function Study(){
 
     const obj1 = {title: '귀여운 유령사진',
                     content: '작고 귀여운 하얀 유령',
-                    img: 유령사진
+                    img: 유령사진,
+                    goodCnt: 0
     }
     const obj2 = {title: '빨간 사과',
                     content: '귀엽고 말랑한 빨간 사과',
-                    img: 사과사진
+                    img: 사과사진,
+                    goodCnt: 0
     }
-    const lists=[obj1, obj2];
+    // const lists=[obj1, obj2];
 
+    
+    const [lists, setLists] = useState([obj1, obj2]);
+
+    function 부모호출(index){
+        console.log(lists[index]);
+        lists[index].goodCnt = lists[index].goodCnt+1;
+        setLists(lists);
+            
+    }
     return (
         <div>
             <h1>Div 나누기</h1>
@@ -22,8 +34,9 @@ export default function Study(){
             <h3>구분선</h3>
             {lists.map((item, index) => (
                 
-                <게시판 key = {index} data={item}/>
+                <게시판 key = {index} data={item} fnGood={부모호출} dataIndex={index}/>
             ))}
+            
 
         </div>
     )
@@ -46,7 +59,13 @@ function 게시판(props){
             <div>
                 <h1>{props.data.title}</h1>
                 <span>{props.data.content}</span>
+                <input type = "button" value = "좋아요" onClick={e=>{
+                    props.fnGood(props.dataIndex);
+                }}/>
+                {props.data.goodCnt}
             </div>
+            
+            
         </div>
     )
 }
