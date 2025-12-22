@@ -5,6 +5,8 @@ import Dark from './page/Dark';
 import StudentInfo from './page/StudentInfo';
 import Props건네주기 from './page/7일차_comp/자식건네주기';
 import 게시판 from './page/7일차_comp/게시판';
+import Board from './page/8일차_comp/Board';
+import Axios1 from './page/axios/Axios보내기';
 
 import './App.css';
 
@@ -20,6 +22,8 @@ function App() {
           <Route path={"/studentinfo"} element={<StudentInfo/>}/>
           <Route path={"/comp1"} element={<Props건네주기/>}/>
           <Route path={"/board"} element={<게시판/>}/>
+          <Route path={"/stuboard"} element={<Board/>}/>
+          <Route path={"/axios1"} element={<Axios1/>}/>
         </Routes>
       </BrowserRouter>
     </>
