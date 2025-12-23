@@ -33,6 +33,7 @@ function 자식3(props){
             <h3>자식 Component 영역</h3>
             <input type ="button" value = "부모 호출" onClick={()=>{
               props.fnStudy('1234');
+              alert(val);
             }}/>
       </div>
     )

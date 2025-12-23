@@ -61,7 +61,7 @@ function 게시판(props){
                 <span>{props.data.content}</span>
                 <input type = "button" value = "좋아요" onClick={e=>{
                     props.fnGood(props.dataIndex);
-                }}/>
+                }}/> 
                 {props.data.goodCnt}
             </div>
             
