@@ -7,8 +7,14 @@ import Props건네주기 from './page/7일차_comp/자식건네주기';
 import 게시판 from './page/7일차_comp/게시판';
 import Board from './page/8일차_comp/Board';
 import Axios1 from './page/axios/Axios보내기';
+import JWTLogin from './page/temp';
+
+import 로그인 from './page/Login';
+import 회원가입 from './page/Register';
+
 
 import './App.css';
+import Register from './page/Register';
 
 function App() {
 
@@ -24,6 +30,9 @@ function App() {
           <Route path={"/board"} element={<게시판/>}/>
           <Route path={"/stuboard"} element={<Board/>}/>
           <Route path={"/axios1"} element={<Axios1/>}/>
+          <Route path={"/login"} element={<로그인/>}/>
+          <Route path={"/register"} element={<회원가입/>}/>
+          <Route path={"/jwtlogin"} element={<JWTLogin/>}/>
         </Routes>
       </BrowserRouter>
     </>
