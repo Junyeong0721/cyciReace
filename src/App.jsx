@@ -11,6 +11,7 @@ import JWTLogin from './page/temp';
 
 import 로그인 from './page/Login';
 import 회원가입 from './page/Register';
+import 게시판2 from './page/axios2/게시판';
 
 
 import './App.css';
@@ -33,6 +34,7 @@ function App() {
           <Route path={"/login"} element={<로그인/>}/>
           <Route path={"/register"} element={<회원가입/>}/>
           <Route path={"/jwtlogin"} element={<JWTLogin/>}/>
+          <Route path={"/board2"} element={<게시판2/>}/>
         </Routes>
       </BrowserRouter>
     </>
