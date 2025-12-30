@@ -1,4 +1,5 @@
-import axios from "axios";
+import { boardList }  from './axios2/api/게시판/boardService';
+import { login} from './axios2/api/로그인/loginService';
 export default function JWTLogin() {
 
   function getCookie(name) {
@@ -22,7 +23,7 @@ export default function JWTLogin() {
       userId: id.value,
       userPw: pw.value
     }
-    axios.post('http://localhost:8085/api/auth/login', obj)
+    login(obj)
       .then(res => {
         console.log(res);
 
@@ -33,12 +34,13 @@ export default function JWTLogin() {
         }
         const restoken = res.data.data;
 
-        if (!res.status === 200){
+        if (restoken === null){
           alert("아이디와 패스워드를 확인해주세요");
           return;
         }
         console.log('토큰 발급 확인 : ' + restoken);
         document.cookie = "token=" + restoken + "; path=/; max-age=86400";
+        document.cookie = "userId=" + id.value + "; path=/; max-age=86400";
       })
   }
 
@@ -70,14 +72,13 @@ export default function JWTLogin() {
 
     function api호출() {
       const token = getCookie('token');
+      const userId = getCookie('userId');
 
-      axios.get('http://localhost:8085/api/board/list', {
-        headers: {
-          'Authorization': 'Bearer ' + token
-        }
-      })
+      boardList()
         .then(res => {
           console.log(res);
+        }).catch(err => {
+          console.log("error");
         });
     }
 
